@@ -2,8 +2,6 @@
 
 use DI\Container;
 use Slim\Factory\AppFactory;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -18,10 +16,7 @@ $app = AppFactory::create();
 $middleware = require __DIR__ . '/../app/middleware.php';
 $middleware($app);
 
-$app->get('/', function (Request $request, Response $response, $parameters) {
-    $response->getBody()->write('init');
-
-    return $response;
-});
+$routes = require __DIR__ . '/../app/routes.php';
+$routes($app);
 
 $app->run();
