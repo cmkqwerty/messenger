@@ -6,7 +6,9 @@ class WelcomeController
 {
     public function index($response)
     {
-        $response->getBody()->write('init');
+        $response->getBody()->write(json_encode([
+            'init' => 'init'
+        ], JSON_PRETTY_PRINT));
 
         return $response;
     }
