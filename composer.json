@@ -1,4 +1,12 @@
 {
+    "name": "cmkqwerty/messenger",
+    "type": "project",
+    "description": "simple chat application",
+    "license": "MIT",
+    "authors": [{
+        "name": "Cem EKE",
+        "email": "cemeke10@gmail.com"
+    }],
     "require": {
         "slim/slim": "4.*",
         "slim/psr7": "^1.6",
