@@ -4,6 +4,7 @@
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
 
 if (!function_exists('env')) {
     function env($key, $default=false) {
