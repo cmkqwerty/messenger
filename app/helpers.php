@@ -2,9 +2,18 @@
 
 // Global Helper Functions
 
-use Psr\Http\Message\ResponseInterface as Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+
+if (!function_exists('env')) {
+    function env($key, $default=false) {
+        $value = getenv($key);
+
+        throw_when(!$value and !$default, "{$key} is not defined and dont have a default value");
+
+        return $value or $default;
+    }
+}
 
 if (!function_exists('base_path'))
 {
