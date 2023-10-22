@@ -6,6 +6,24 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 
+if (!function_exists('collect'))
+{
+    function collect($items)
+    {
+        return new Collection($items);
+    }
+}
+
+if (!function_exists('factory'))
+{
+    function factory(string $model, int $count = 1)
+    {
+        $factory = new Factory;
+
+        return $factory($model, $count);
+    }
+}
+
 if (!function_exists('env')) {
     function env($key, $default=false) {
         $value = getenv($key);
@@ -21,6 +39,14 @@ if (!function_exists('base_path'))
     function base_path($path = '')
     {
         return __DIR__ . "/../{$path}";
+    }
+}
+
+if (!function_exists('database_path'))
+{
+    function database_path($path = '')
+    {
+        return base_path("database/{$path}");
     }
 }
 
