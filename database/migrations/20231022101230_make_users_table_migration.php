@@ -24,7 +24,7 @@ final class MakeUsersTableMigration extends AbstractMigration
         $table->addColumn('first_name', 'string', ['limit' => 128])
             ->addColumn('last_name', 'string', ['limit' => 128])
             ->addColumn('email', 'string', ['limit' => 255])
-            ->addColumn('password_hash', 'string', ['limit' => 255])
+            ->addColumn('password', 'string', ['limit' => 255])
             ->addIndex('email', ['unique' => true])
             ->create();
     }

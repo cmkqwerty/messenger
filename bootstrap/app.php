@@ -16,5 +16,6 @@ if (!function_exists('app'))
 }
 
 $app->addRoutingMiddleware();
+$app->addBodyParsingMiddleware();
 
 return HttpKernel::bootstrap($app)->getApplication();
