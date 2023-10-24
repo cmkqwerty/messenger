@@ -6,6 +6,16 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 
+if (!function_exists('redirect'))
+{
+    function redirect(string $to)
+    {
+        $redirect = app()->getContainer()->get(\App\Support\Redirect::class);
+
+        return $redirect($to);
+    }
+}
+
 if (!function_exists('collect'))
 {
     function collect($items)
