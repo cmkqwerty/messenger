@@ -22,7 +22,8 @@
         "robmorgan/phinx": "^0.15.2",
         "fakerphp/faker": "^1.23",
         "firebase/php-jwt": "^5.5",
-        "tuupola/slim-jwt-auth": "^3.8"
+        "tuupola/slim-jwt-auth": "^3.8",
+        "illuminate/validation": "^10.28"
     },
     "autoload": {
         "files": [

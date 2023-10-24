@@ -10,6 +10,22 @@ class RegisterController
 {
     public function store(RequestInput $input, $response)
     {
+        $params = $input->all();
+
+        $rules = [
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ];
+
+        $validator = validator($params, $rules);
+
+        if ($validator->fails())
+        {
+            dd($validator->errors());
+        }
+
         $input->password = sha1($input->password);
 
         if (User::where('email', $input->email)->exists())

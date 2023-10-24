@@ -10,6 +10,20 @@ class LoginController
 {
     public function store(RequestInput $input, $response)
     {
+        $params = $input->all();
+
+        $rules = [
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ];
+
+        $validator = validator($params, $rules);
+
+        if ($validator->fails())
+        {
+            dd($validator->errors());
+        }
+
         $token = '';
         $successful = Auth::attempt($input->email, sha1($input->password), $token);
 

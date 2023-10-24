@@ -6,6 +6,16 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 
+if (!function_exists('validator'))
+{
+    function validator(array $input, array $rules, array $message = [])
+    {
+        $factory = app()->getContainer()->get(\Boot\Foundation\Http\ValidatorFactory::class);
+
+        return $factory->make($input, $rules, $message);
+    }
+}
+
 if (!function_exists('redirect'))
 {
     function redirect(string $to)
