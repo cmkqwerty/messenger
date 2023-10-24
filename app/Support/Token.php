@@ -40,17 +40,8 @@ class Token
         return JWT::encode($token, self::getSecretKey(), 'HS256');
     }
 
-    public static function verifyToken(string $token): array
+    public static function decodeToken(string $token): array
     {
-        $algorithm = ['HS256'];
-
-        try {
-            $decoded = JWT::decode($token, self::getSecretKey(),$algorithm);
-            return (array)$decoded;
-        } catch (\Exception $e) {
-            error_log($e->getMessage());
-            return [];
-        }
+        return (array)JWT::decode($token, new Key(self::$secretKey, 'HS256'));
     }
-
 }

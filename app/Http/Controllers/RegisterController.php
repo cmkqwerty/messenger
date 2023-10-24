@@ -19,10 +19,12 @@ class RegisterController
 
         $user = User::forceCreate($input->all());
 
-        Auth::attempt($user->email, $input->password);
+        $token = '';
+        Auth::attempt($user->email, $input->password, $token);
 
         $response->getBody()->write(json_encode([
             "is_created" => true,
+            "token" => $token,
         ]), JSON_PRETTY_PRINT);
 
         return $response;

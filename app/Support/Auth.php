@@ -7,7 +7,7 @@ use \App\Support\Token;
 
 class Auth
 {
-    public static function attempt($email, $password)
+    public static function attempt($email, $password, &$token)
     {
         $user = User::where('email', $email);
 

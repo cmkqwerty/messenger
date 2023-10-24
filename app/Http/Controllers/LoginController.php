@@ -10,13 +10,18 @@ class LoginController
 {
     public function store(RequestInput $input, $response)
     {
-        $successful = Auth::attempt($input->email, sha1($input->password));
+        $token = '';
+        $successful = Auth::attempt($input->email, sha1($input->password), $token);
 
         if (!$successful)
         {
             dd('Unsuccessful login');
         }
 
-        return redirect('/login');
+        $response->getBody()->write(json_encode([
+            "token" => $token,
+        ]), JSON_PRETTY_PRINT);
+
+        return $response;
     }
 }

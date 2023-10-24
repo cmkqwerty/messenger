@@ -21,7 +21,8 @@
         "vlucas/phpdotenv": "^5.5",
         "robmorgan/phinx": "^0.15.2",
         "fakerphp/faker": "^1.23",
-        "firebase/php-jwt": "^6.9"
+        "firebase/php-jwt": "^5.5",
+        "tuupola/slim-jwt-auth": "^3.8"
     },
     "autoload": {
         "files": [
