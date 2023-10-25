@@ -7,7 +7,7 @@ class WelcomeController
     public function index($response)
     {
         $response->getBody()->write(json_encode([
-            'init' => 'init'
+            'init' => 'Welcome to the Messenger.'
         ], JSON_PRETTY_PRINT));
 
         return $response;
