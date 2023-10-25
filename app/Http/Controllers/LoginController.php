@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Support\RequestInput;
 use App\Support\Auth;
-use App\User;
 
 class LoginController
 {
@@ -21,7 +20,11 @@ class LoginController
 
         if ($validator->fails())
         {
-            dd($validator->errors());
+            $newResponse = $response->withStatus(400);
+
+            $newResponse->getBody()->write(json_encode($validator->errors()), JSON_PRETTY_PRINT);
+
+            return $newResponse;
         }
 
         $token = '';
@@ -29,7 +32,14 @@ class LoginController
 
         if (!$successful)
         {
-            dd('Unsuccessful login');
+            $newResponse = $response->withStatus(403);
+
+            $newResponse->getBody()->write(json_encode([
+                    "error" => "Unsuccessful login.",
+                ]
+            ), JSON_PRETTY_PRINT);
+
+            return $newResponse;
         }
 
         $response->getBody()->write(json_encode([
