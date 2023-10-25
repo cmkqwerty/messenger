@@ -42,7 +42,7 @@ class RegisterControllerTest extends TestCase
 
         $requestInput = new RequestInput($request, $route);
 
-        // Instantiate the LoginController
+        // Instantiate the RegisterController
         $registerController = new RegisterController();
 
         // Call the store method
@@ -67,7 +67,7 @@ class RegisterControllerTest extends TestCase
 
         $requestInput = new RequestInput($request, $route);
 
-        // Instantiate the LoginController
+        // Instantiate the RegisterController
         $registerController = new RegisterController();
 
         // Call the store method
@@ -92,7 +92,7 @@ class RegisterControllerTest extends TestCase
 
         $requestInput = new RequestInput($request, $route);
 
-        // Instantiate the LoginController
+        // Instantiate the RegisterController
         $registerController = new RegisterController();
 
         // Call the store method

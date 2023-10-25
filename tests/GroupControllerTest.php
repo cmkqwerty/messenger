@@ -8,7 +8,6 @@ use App\Http\Controllers\GroupController;
 use App\Support\RequestInput;
 use Slim\Psr7\Factory\ServerRequestFactory;
 use Slim\Psr7\Factory\ResponseFactory;
-use App\Support\Token;
 
 class GroupControllerTest extends TestCase
 {
@@ -60,7 +59,7 @@ class GroupControllerTest extends TestCase
         // Instantiate the GroupController
         $groupController = new GroupController();
 
-        // Call the store method
+        // Call the list method
         $result = $groupController->list($response);
 
         // Perform assertions based on the expected behavior
@@ -70,10 +69,10 @@ class GroupControllerTest extends TestCase
     public function testJoinGroup() : void
     {
         $requestFactory = new ServerRequestFactory();
-        $request = $requestFactory->createServerRequest('POST', '/groups/3/join');
-        $group_id = 3;
+        $request = $requestFactory->createServerRequest('POST', '/groups/2/join');
+        $group_id = 2;
 
-        // Value come from JWT Token.
+        // Value come from JWT Token
         $request = $request->withAttribute("token", ['data' => (object) ['id' => 1]]);
 
         $response = (new ResponseFactory())->createResponse();
@@ -85,7 +84,7 @@ class GroupControllerTest extends TestCase
         // Instantiate the GroupController
         $groupController = new GroupController();
 
-        // Call the store method
+        // Call the join method
         $result = $groupController->join($request, $response, $group_id);
 
         // Perform assertions based on the expected behavior
@@ -95,10 +94,10 @@ class GroupControllerTest extends TestCase
     public function testListMessages() : void
     {
         $requestFactory = new ServerRequestFactory();
-        $request = $requestFactory->createServerRequest('GET', '/groups/3/messages');
-        $group_id = 3;
+        $request = $requestFactory->createServerRequest('GET', '/groups/2/messages');
+        $group_id = 2;
 
-        // Value come from JWT Token.
+        // Value come from JWT Token
         $request = $request->withAttribute("token", ['data' => (object) ['id' => 1]]);
 
         $response = (new ResponseFactory())->createResponse();
@@ -110,7 +109,7 @@ class GroupControllerTest extends TestCase
         // Instantiate the GroupController
         $groupController = new GroupController();
 
-        // Call the store method
+        // Call the listMessages method
         $result = $groupController->listMessages($request, $response, $group_id);
 
         // Perform assertions based on the expected behavior
@@ -120,15 +119,15 @@ class GroupControllerTest extends TestCase
     public function testSendMessage() : void
     {
         $requestFactory = new ServerRequestFactory();
-        $request = $requestFactory->createServerRequest('POST', '/groups');
-        $group_id = 3;
+        $request = $requestFactory->createServerRequest('POST', '/groups/2/messages');
+        $group_id = 2;
 
-        // Value come from JWT Token.
+        // Value come from JWT Token
         $request = $request->withAttribute("token", ['data' => (object) ['id' => 1]]);
 
         $response = (new ResponseFactory())->createResponse();
 
-        // Send group name
+        // Send message content
         $request = $request->withParsedBody(['content' => 'Test message.']);
 
         // Instantiate the RequestInput class with the mock request and route
@@ -140,7 +139,7 @@ class GroupControllerTest extends TestCase
         // Instantiate the GroupController
         $groupController = new GroupController();
 
-        // Call the store method
+        // Call the sendMessage method
         $result = $groupController->sendMessage($request, $requestInput, $response, $group_id);
 
         // Perform assertions based on the expected behavior
