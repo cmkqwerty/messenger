@@ -1,0 +1,615 @@
+{
+	"info": {
+		"_postman_id": "b899e428-37f1-49a9-9392-b3a5b432c252",
+		"name": "Messenger",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14282633",
+		"_collection_link": "https://galactic-moon-743404.postman.co/workspace/Team-Workspace~a71e62b7-e5f2-4346-8a67-ddc5698c3e37/collection/14282633-b899e428-37f1-49a9-9392-b3a5b432c252?action=share&source=collection_link&creator=14282633"
+	},
+	"item": [
+		{
+			"name": "Auth Related Endpoints",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Cem\",\n    \"last_name\": \"Eke\",\n    \"email\": \"cemeke10@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/api/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"Cem\",\n    \"last_name\": \"Eke\",\n    \"email\": \"cemeke10@gmail.com\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8888/api/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8888"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 20:25:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Content-type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "                {\"is_created\":true,\"user\":{\"first_name\":\"Cem\",\"last_name\":\"Eke\",\"email\":\"cemeke10@gmail.com\",\"password\":\"7c4a8d09ca3762af61e59520943dc26494f8941b\",\"id\":1},\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTgyNjU1NTAsImV4cCI6MTY5ODI2OTE1MCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJjZW1la2UxMEBnbWFpbC5jb20ifX0.1B2zAp8HlulZaiBbSNmThrA2ICS5H1eINZS4TwEgbDk\"}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"cemeke10@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/api/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"cemeke10@gmail.com\",\n    \"password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8888/api/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8888"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 20:26:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Content-type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "                {\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTgyNjU1NzIsImV4cCI6MTY5ODI2OTE3MiwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJjZW1la2UxMEBnbWFpbC5jb20ifX0.5Qctjkbq01znKdE7AhihEdPpDWBQKttU7Rr_5o6Vhcw\"}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Group Related Endpoints",
+			"item": [
+				{
+					"name": "Create Group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTgyNjU0MTgsImV4cCI6MTY5ODI2OTAxOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJjZW1la2UxMEBnbWFpbC5jb20ifX0.ayrStNwHYa_MwMP1uae56obz9se_tW2O_py_zKhbTyQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"bunq staff\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/api/groups",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Group",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"bunq staff\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8888/api/groups",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"api",
+										"groups"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8888"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 20:26:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Content-type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "                {\"is_created\":true,\"group\":{\"name\":\"bunq staff\",\"id\":1}}"
+						}
+					]
+				},
+				{
+					"name": "List Groups",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTgyNjU0MTgsImV4cCI6MTY5ODI2OTAxOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJjZW1la2UxMEBnbWFpbC5jb20ifX0.ayrStNwHYa_MwMP1uae56obz9se_tW2O_py_zKhbTyQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/api/groups",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Groups",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8888/api/groups",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"api",
+										"groups"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8888"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 20:26:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Content-type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "            [{\"id\":1,\"name\":\"bunq staff\"}]"
+						}
+					]
+				},
+				{
+					"name": "Join Group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTgyNjU0MTgsImV4cCI6MTY5ODI2OTAxOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJjZW1la2UxMEBnbWFpbC5jb20ifX0.ayrStNwHYa_MwMP1uae56obz9se_tW2O_py_zKhbTyQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/api/groups/1/join",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"groups",
+								"1",
+								"join"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Join Group",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8888/api/groups/1/join",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"api",
+										"groups",
+										"1",
+										"join"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8888"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 20:26:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Content-type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "                {\"is_joined\":true}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Message Related Endpoints",
+			"item": [
+				{
+					"name": "Create Message",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTgyNjU0MTgsImV4cCI6MTY5ODI2OTAxOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJjZW1la2UxMEBnbWFpbC5jb20ifX0.ayrStNwHYa_MwMP1uae56obz9se_tW2O_py_zKhbTyQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"bunq is great!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8888/api/groups/1/messages",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"groups",
+								"1",
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Message",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"content\": \"bunq is great!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8888/api/groups/1/messages",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"api",
+										"groups",
+										"1",
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8888"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 20:27:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Content-type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "                [{\"group_id\":\"1\",\"user_id\":1,\"content\":\"bunq is great!\",\"created_at\":\"2023-10-25T20:27:27.000000Z\",\"id\":1}]"
+						}
+					]
+				},
+				{
+					"name": "List Messages",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTgyNjU0MTgsImV4cCI6MTY5ODI2OTAxOCwiZGF0YSI6eyJpZCI6MSwiZW1haWwiOiJjZW1la2UxMEBnbWFpbC5jb20ifX0.ayrStNwHYa_MwMP1uae56obz9se_tW2O_py_zKhbTyQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8888/api/groups/1/messages",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"api",
+								"groups",
+								"1",
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Messages",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8888/api/groups/1/messages",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"api",
+										"groups",
+										"1",
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8888"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 25 Oct 2023 20:27:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.11"
+								},
+								{
+									"key": "Content-type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "                [{\"id\":1,\"group_id\":1,\"user_id\":1,\"content\":\"bunq is great!\",\"created_at\":\"2023-10-25T20:27:27.000000Z\"}]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
