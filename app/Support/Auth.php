@@ -3,7 +3,7 @@
 namespace App\Support;
 
 use \App\User;
-use \App\Support\Token;
+use \App\UserGroupMatch;
 
 class Auth
 {
@@ -20,8 +20,6 @@ class Auth
 
         if ($password !== $user->password)
         {
-            dd("Wrong credentials");
-
             return false;
         }
 
@@ -33,20 +31,17 @@ class Auth
         return true;
     }
 
-    public static function user()
+    public static function user($request)
     {
-        $query = User::where($_SESSION['user']);
+        $id = $request->getAttribute('token')['data']->id;
 
-        return $query->exists() ? $query->first() : false;
+        return $id;
     }
 
-    public static function check() : bool
+    public static function isUserInGroup($user_id, $group_id)
     {
-        return (bool) self::user();
-    }
-
-    public static function guest() : bool
-    {
-        return !self::check();
+        return UserGroupMatch::where('user_id', $user_id)
+            ->where('group_id', $group_id)
+            ->exists();
     }
 }

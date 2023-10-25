@@ -15,15 +15,15 @@ Route::get('/groups', 'GroupController@list')->add(new Tuupola\Middleware\JwtAut
     "attribute" => "token",
     "secret" => env('SECRET_KEY')
 ]));
-Route::post('/groups/join', 'GroupController@join')->add(new Tuupola\Middleware\JwtAuthentication([
+Route::post('/groups/{group_id}/join', 'GroupController@join')->add(new Tuupola\Middleware\JwtAuthentication([
     "attribute" => "token",
     "secret" => env('SECRET_KEY')
 ]));
-Route::get('/groups/messages', 'GroupController@listMessages')->add(new Tuupola\Middleware\JwtAuthentication([
+Route::get('/groups/{group_id}/messages', 'GroupController@listMessages')->add(new Tuupola\Middleware\JwtAuthentication([
     "attribute" => "token",
     "secret" => env('SECRET_KEY')
 ]));
-Route::post('/groups/messages', 'GroupController@sendMessage')->add(new Tuupola\Middleware\JwtAuthentication([
+Route::post('/groups/{group_id}/messages', 'GroupController@sendMessage')->add(new Tuupola\Middleware\JwtAuthentication([
     "attribute" => "token",
     "secret" => env('SECRET_KEY')
 ]));

@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use DB;
-
 class WelcomeController
 {
-    public function index($response, DB $db)
+    public function index($response)
     {
-        //$users = $db->table('Users')->find(1);
-
         $response->getBody()->write(json_encode([
-            'init' => 'init'
+            'init' => 'Welcome to the Messenger.'
         ], JSON_PRETTY_PRINT));
 
         return $response;

@@ -23,14 +23,24 @@ class RegisterController
 
         if ($validator->fails())
         {
-            dd($validator->errors());
+            $newResponse = $response->withStatus(400);
+
+            $newResponse->getBody()->write(json_encode($validator->errors()), JSON_PRETTY_PRINT);
+
+            return $newResponse;
         }
 
         $input->password = sha1($input->password);
 
         if (User::where('email', $input->email)->exists())
         {
-            dd('Email already exists');
+            $newResponse = $response->withStatus(400);
+
+            $newResponse->getBody()->write(json_encode([
+                "error" => "User already exists.",
+            ]), JSON_PRETTY_PRINT);
+
+            return $newResponse;
         }
 
         $user = User::forceCreate($input->all());
@@ -40,6 +50,7 @@ class RegisterController
 
         $response->getBody()->write(json_encode([
             "is_created" => true,
+            "user" => $user,
             "token" => $token,
         ]), JSON_PRETTY_PRINT);
 
